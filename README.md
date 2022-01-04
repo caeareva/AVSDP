@@ -3,7 +3,7 @@
 This repository provides a series of programs written in raw python to analyse
 your scientific data from biological experiments. Each program was designed to be 
 run in the command-line interface (in your computer terminal) but could be slightly
-updated for Jupyter Notebook (https://jupyter.org/).
+updated to Jupyter Notebook (https://jupyter.org/).
 
 More programs will be included overtime!
 
