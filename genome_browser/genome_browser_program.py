@@ -6,15 +6,15 @@
 #
 #   Program description:
 #   Program takes as input a GTF file, two PLS files text files. The program was 
-#	written to be run in the command line, but could be slightly modified to be 
-#	run in Jupyter notebook. 
+#   written to be run in the command line, but could be slightly modified to be 
+#   run in Jupyter notebook. 
 #
-#	python3 /Users/carevalo/Desktop/genome_browser/genome_browser_program.py \
-#        -i1 /Users/carevalo/Desktop/genome_browser/test_input_data_6.psl \
-#        -i2 /Users/carevalo/Desktop/genome_browser/test_input_data_6.psl \
-#        -g /Users/carevalo/Desktop/genome_browser/refdata-gex-mm10-2020-A-genes_wtMUC1_fsMUC1.gtf \
-#        -o /Users/carevalo/Desktop/genome_browser/genome_browser_figure.png \
-#        -s /Users/carevalo/Desktop/genome_browser/stylesheet.mplstyle
+#   python3 /Users/carevalo/Desktop/genome_browser/genome_browser_program.py \
+#      -i1 /Users/carevalo/Desktop/genome_browser/test_input_data_6.psl \
+#      -i2 /Users/carevalo/Desktop/genome_browser/test_input_data_6.psl \
+#      -g /Users/carevalo/Desktop/genome_browser/refdata-gex-mm10-2020-A-genes_wtMUC1_fsMUC1.gtf \
+#      -o /Users/carevalo/Desktop/genome_browser/genome_browser_figure.png \
+#      -s /Users/carevalo/Desktop/genome_browser/stylesheet.mplstyle
 #
 ################################################################################
 
