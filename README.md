@@ -8,7 +8,7 @@ updated for Jupyter Notebook (https://jupyter.org/).
 More programs will be included overtime!
 
 <br>
-<img src="https://github.com/caeareva/AVSDPy/blob/ed494654edae5b41f56d7be6f1eb9657f0b8263e/summary_figure_1.png"
+<img src="https://github.com/caeareva/AVSDP/blob/2d767b1b7c1034af4fc4201ed3539f0997729665/summary_figure_1.png"
 <br>
-<img src="https://github.com/caeareva/AVSDPy/blob/0e039ec6a3114c214293b2c747a5c3b0e64eb75f/summary_figure_2.png"
+<img src="https://github.com/caeareva/AVSDP/blob/2d767b1b7c1034af4fc4201ed3539f0997729665/summary_figure_2.png"
 <br>
