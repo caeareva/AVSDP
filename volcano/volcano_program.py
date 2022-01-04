@@ -145,38 +145,6 @@ for i in range(len(labels)):
                     fontsize=4,
                     verticalalignment="bottom",
                     horizontalalignment="center") 
-
+# Save figure
 plt.savefig(outFile, dpi=600)
-
-# Program ran as:
-#python3 /Users/carevalo/Desktop/asg3_program.py \
-#    -i /Users/carevalo/Downloads/BME163_Input_Data_2.txt \
-#    -o /Users/carevalo/Desktop/Arevalo_Carlos_BME163_Assignment_Week3.png \
-#    -s /Users/carevalo/Downloads/stylesheet.mplstyle 
- 
-#python3 /Users/carevalo/Desktop/Data_analysis/asg3_program.py \
-#    -i /Users/carevalo/Desktop/Metabolomics/EA4hr.txt \
-#    -o /Users/carevalo/Desktop/EA4hr_volcano_plot.png \
-#    -s /Users/carevalo/Downloads/stylesheet.mplstyle 
-
-#python3 /Users/carevalo/Desktop/Data_analysis/asg3_program.py \
-#    -i /Users/carevalo/Desktop/Metabolomics/EA24hr.txt \
-#    -o /Users/carevalo/Desktop/EA24hr_volcano_plot.png \
-#    -s /Users/carevalo/Downloads/stylesheet.mplstyle 
-
-#python3 /Users/carevalo/Desktop/Data_analysis/asg3_program.py \
-#    -i /Users/carevalo/Desktop/Metabolomics/OA24hr.txt \
-#    -o /Users/carevalo/Desktop/OA24hr_volcano_plot.png \
-#    -s /Users/carevalo/Downloads/stylesheet.mplstyle 
-
-#python3 /Users/carevalo/Desktop/Data_analysis/asg3_program.py \
-#    -i /Users/carevalo/Desktop/Metabolomics/PA4hr.txt \
-#    -o /Users/carevalo/Desktop/PA4hr_volcano_plot.png \
-#    -s /Users/carevalo/Downloads/stylesheet.mplstyle 
-
-#python3 /Users/carevalo/Desktop/Data_analysis/asg3_program.py \
-#    -i /Users/carevalo/Desktop/Metabolomics/PA24hr.txt \
-#    -o /Users/carevalo/Desktop/PA24hr_volcano_plot.png \
-#    -s /Users/carevalo/Downloads/stylesheet.mplstyle 
-
 
