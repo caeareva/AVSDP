@@ -1,0 +1,16 @@
+font.size          : 10.0
+font.sans-serif    : Arial
+xtick.major.size   : 2
+xtick.major.width  : 1
+xtick.labelsize    : 10.0
+xtick.direction    : out
+ytick.major.size   : 2
+ytick.major.width  : 1
+ytick.labelsize    : 10.0
+ytick.direction    : out
+xtick.major.pad    : 2
+xtick.minor.pad    : 2
+ytick.major.pad    : 2
+ytick.minor.pad    : 2
+savefig.dpi        : 600
+axes.linewidth     : 1
