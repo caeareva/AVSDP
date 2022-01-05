@@ -19,7 +19,6 @@
 #
 ################################################################################
 
-
 # Required modules
 import matplotlib.pyplot as plt
 import matplotlib.patches as mplpatches
