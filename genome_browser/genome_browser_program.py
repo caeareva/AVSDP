@@ -120,11 +120,11 @@ def plotTranscripts(panel, readList, genomicCoord, line_thin, line_thick, width)
     genome_chromosome, genome_start, genome_end = genomicCoord[0], genomicCoord[1], genomicCoord[2]
     plottedReads = [] # Keep list of plotted reads
     for read in readList:
-        chromosome,start,end,blockstarts,blockwidths,type1=read[0],read[1],read[2],read[3],read[4], read[5]
+        chromosome, start, end, blockstarts, blockwidths, type1 = read[0], read[1], read[2], read[3], read[4], read[5]
         if chromosome == genome_chromosome:
-            if genome_start<start<genome_end or genome_start<end<genome_end:
+            if genome_start < start < genome_end or genome_start < end < genome_end:
             	# Keep track of plotted reads
-            	new_read = [read[0],read[1],read[2],read[3],read[4], False, read[5]]
+            	new_read = [read[0], read[1], read[2], read[3], read[4], False, read[5]]
             	plottedReads.append(new_read)
     
     # Sort plotted reads based on start position
@@ -134,8 +134,7 @@ def plotTranscripts(panel, readList, genomicCoord, line_thin, line_thick, width)
     for y_pos in range(1, len(sortedPlottedReads), 1):
     	lastPlottedEnd = genome_start-100000
     	for read in sortedPlottedReads:
-    		chromosome,start,end,blockstarts,blockwidths,plotted,type1=read[0],read[1],read[2],read[3], \
-    																	read[4],read[5],read[6]
+    		chromosome, start, end, blockstarts, blockwidths, plotted, type1 = read[0], read[1], read[2], read[3], read[4], read[5], read[6]
     		if plotted is False:
     			if start > lastPlottedEnd:
     				rect = mplpatches.Rectangle((start, y_pos+width),
@@ -176,7 +175,7 @@ def plotReads(panel, readList, genomicCoord, line_thin, line_thick, width):
 	genome_chromosome, genome_start, genome_end = genomicCoord[0], genomicCoord[1], genomicCoord[2]
 	plottedReads = [] # Keep list of plotted reads
 	for read in readList: 
-		chromosome,start,end,blockstarts,blockwidths,=read[0],read[1],read[2],read[3],read[4]
+		chromosome, start, end, blockstarts, blockwidths, = read[0], read[1], read[2], read[3], read[4]
 		if chromosome == genome_chromosome:
 			if genome_start < start < genome_end or genome_start < end < genome_end:
 				# Keep track of plotted reads
@@ -190,7 +189,7 @@ def plotReads(panel, readList, genomicCoord, line_thin, line_thick, width):
 	for y_pos in range(1, len(sortedPlottedReads), 1):
 		lastPlottedEnd = genome_start
 		for read in sortedPlottedReads:
-			chromosome,start,end,blockstarts,blockwidths,plotted=read[0],read[1],read[2],read[3],read[4],read[5]
+			chromosome, start, end, blockstarts, blockwidths, plotted = read[0], read[1], read[2], read[3], read[4], read[5]
 			if plotted is False:
 				if start > lastPlottedEnd:
 					rect = mplpatches.Rectangle((start, y_pos+width), 
