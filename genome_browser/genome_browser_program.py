@@ -9,6 +9,7 @@
 #   written to be run in the command line, but could be slightly modified to be 
 #   run in Jupyter notebook. 
 #
+#   Program execution:
 #   python3 /Users/carevalo/Desktop/genome_browser/genome_browser_program.py \
 #      -i1 /Users/carevalo/Desktop/genome_browser/test_input_data_6.psl \
 #      -i2 /Users/carevalo/Desktop/genome_browser/test_input_data_6.psl \
@@ -49,15 +50,15 @@ outFile = args.output_file
 
 # Set panels parameters
 def panel_params(x_pos, y_pos, figureWidth, figureHeight):
-	# defines panel dimensions
+	# Sefine panel dimensions
 	panelHeight=1.25
 	panelWidth=10
 	relativePanelWidth = panelWidth/figureWidth
 	relativePanelHeight = panelHeight/figureHeight
-	# sets panel
+	# Set panel
 	panel = plt.axes([x_pos, y_pos, relativePanelWidth, relativePanelHeight], frameon=True)
 	panel.set_xticks([])
-	# turns all labels and thicks off
+	# Turn all labels and thicks off
 	panel.tick_params(bottom=False, labelbottom=False,
                         left=False, labelleft=False,
                         right=False, labelright=False,
@@ -229,7 +230,6 @@ panel3 = panel_params(0, 0.05, figureWidth, figureHeight)
 #genomicCoord = ['chr1', 155184054, 155194688] # MUC1
 #genomicCoord = ['chr12', 25205246, 25250929] # KRAS
 genomicCoord = ['chr7', 45232945, 45240000]
-#genomicCoord = ['chr7', 452329, 4524000]
 
 # Plot transcripts in panel 1
 transcriptList = readGtf(genomeFile)
