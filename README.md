@@ -1,6 +1,6 @@
 ## Analysis and Visualization of Scientific Data in Python
 
-This repository provides a series of programs written in raw python to analyse
+This repository provides a collection of programs written in raw Python to analyse
 your scientific data from biological experiments. Each program was designed to be 
 run in the command-line interface (in your computer terminal, 
 https://launchschool.com/books/command_line/read/introduction) but could be slightly
