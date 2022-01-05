@@ -50,8 +50,8 @@ outFile = args.output_file
 # Set panels parameters
 def panel_params(x_pos, y_pos, figureWidth, figureHeight):
 	# Sefine panel dimensions
-	panelHeight=1.25
-	panelWidth=10
+	panelHeight = 1.25
+	panelWidth = 10
 	relativePanelWidth = panelWidth/figureWidth
 	relativePanelHeight = panelHeight/figureHeight
 	# Set panel
@@ -83,27 +83,27 @@ def readData(inFile):
 
 # Read input GTF file
 def readGtf(inFile):
-    transcriptList=[]
-    gtfDict={}
+    transcriptList = []
+    gtfDict = {}
     for line in open(inFile):
-        if line[0]!='#':
+        if line[0] != '#':
             a=line.strip().split('\t')
             chromosome=a[0]
-            type1=a[2]
+            type1 = a[2]
             if type1 in  ['exon','CDS']:
-                start=int(a[3])
-                end=int(a[4])
-                transcript=a[8].split(' transcript_id "')[1].split('"')[0]
+                start = int(a[3])
+                end = int(a[4])
+                transcript = a[8].split(' transcript_id "')[1].split('"')[0]
                 if transcript not in gtfDict:
-                    gtfDict[transcript]=[]
+                    gtfDict[transcript] = []
                 gtfDict[transcript].append([chromosome, start, end, type1])
 
     for transcript, parts in gtfDict.items():
-        starts=[]
-        ends=[]
-        blockstarts=[]
-        blockwidths=[]
-        types=[]
+        starts = []
+        ends = []
+        blockstarts = []
+        blockwidths = []
+        types = []
         for part in parts:
             starts.append(part[1])
             ends.append(part[2])
@@ -215,9 +215,9 @@ def plotReads(panel, readList, genomicCoord, line_thin, line_thick, width):
 	return y_pos
 
 # Define figure dimentions
-figureHeight=5
-figureWidth=10
-plt.figure(figsize=(figureWidth, figureHeight))
+figureHeight = 5
+figureWidth = 10
+plt.figure(figsize = (figureWidth, figureHeight))
 
 # Set panels: left,bottom, width,height
 panel1 = panel_params(0 ,0.65, figureWidth, figureHeight)
