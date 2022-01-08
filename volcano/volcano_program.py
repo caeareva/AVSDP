@@ -46,7 +46,7 @@ x_labels = []
 y_labels = []
 labels = []
 
-# except NA values: 
+# Read data and except NA values: 
 with open(inFile, "r") as inFile:
     for line in inFile.readlines():
         try:
@@ -95,7 +95,7 @@ relativePanelWidth=panelWidth/figureWidth
 relativePanelHeight=panelHeight/figureHeight
 panel1=plt.axes([0.2, 0.2, relativePanelWidth, relativePanelHeight])
 
-# axis labels:
+# Axis labels:
 panel1.tick_params(bottom=True, labelbottom=True,
                    left=True, labelleft=True,
                    right=False, labelright=False,
@@ -146,4 +146,3 @@ for i in range(len(labels)):
                     horizontalalignment="center") 
 # Save figure
 plt.savefig(outFile, dpi=600)
-
