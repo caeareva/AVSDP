@@ -7,7 +7,8 @@
 #   Program description:
 #   Program takes as input a GTF file, two PLS files text files. The program was 
 #   written to be run in the command line, but could be slightly modified to be 
-#   run in Jupyter notebook. 
+#   run in Jupyter notebook. Since only one test PLS file is provided, program 
+#   can be executed with the same file for both input parameters.
 #
 #   Program execution:
 #   python3 /Users/carevalo/Desktop/genome_browser/genome_browser_program.py \
