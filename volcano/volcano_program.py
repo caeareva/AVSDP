@@ -7,7 +7,7 @@
 #   Program description:
 #   Program takes an input text file in which the first column are genes, second
 #   column are the LFC values, and third column, p-values.
-#   The program was written to be executed in the command line, but could be 
+#   The program was written to be executed in the command line and could be 
 #   slightly modified to Jupyter Notebook. 
 #
 #   Program execution:
@@ -90,6 +90,7 @@ plt.figure(figsize=(figureWidth, figureHeight))
 # Panels size parameters
 panelWidth=2.0
 panelHeight=2.0
+
 # Normalize axis units:
 relativePanelWidth=panelWidth/figureWidth
 relativePanelHeight=panelHeight/figureHeight
@@ -103,9 +104,9 @@ panel1.tick_params(bottom=True, labelbottom=True,
 
 # Panel axis and labels:
 panel1.set_xlim(-8, 8)
-panel1.set_ylim(0, 8) #max(y_values)+0.5)
+panel1.set_ylim(0, 8) # max(y_values)+0.5)
 panel1.set_xticks(np.arange(-8, 8.5, 2))
-panel1.set_yticks(np.arange(0, 8.5, 1)) #max(y_values)+0.5, 1))
+panel1.set_yticks(np.arange(0, 8.5, 1)) # max(y_values)+0.5, 1))
 panel1.set_xlabel("$\mathregular{log_{2}}$(fold change)")
 panel1.set_ylabel("-$\mathregular{log_{10}}$(p-value)")
 panel1.set_title("EA (4:45 hrs)", fontsize=8)
