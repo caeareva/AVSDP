@@ -38,35 +38,35 @@ inFile = args.input_file
 # inFile=open("/Users/carlosarevalo/Downloads/test_input_data_1.txt", "r")
 
 # Make lists of input values:
-x_values=[]
-y_values=[]
+x_values = []
+y_values = []
 
 # Read input data
 with open(inFile, "r") as inFile:
     for line in inFile.readlines():
-        splitline=line.strip().split("\t")
-        name=splitline[0]
+        splitline = line.strip().split("\t")
+        name = splitline[0]
         x_values.append(int(splitline[1]))
         y_values.append(int(splitline[2]))
     pass
 
-x_vals=np.log2([x+1 for x in np.array(x_values)])
-y_vals=np.log2([y+1 for y in np.array(y_values)])
+x_vals = np.log2([x + 1 for x in np.array(x_values)])
+y_vals = np.log2([y + 1 for y in np.array(y_values)])
 
 # Define figure dimensions:
-figureHeight=2
-figureWidth=5
+figureHeight = 2
+figureWidth = 5
 
 # Generate a wide canvas of arbitrary size:
-plt.figure(figsize=(figureWidth, figureHeight)) 
+plt.figure(figsize = (figureWidth, figureHeight)) 
 
-# Normalized panel size parameters:
-panelWidth=1/figureWidth
-panelHeight=1/figureHeight
-x_hist_width=panelWidth
-x_hist_height=(1/4)/figureHeight
-y_hist_width=(1/4)/figureWidth
-y_hist_height=panelHeight
+# Normalize panel size parameters
+panelWidth = 1/figureWidth
+panelHeight = 1/figureHeight
+x_hist_width = panelWidth
+x_hist_height = (1/4)/figureHeight
+y_hist_width = (1/4)/figureWidth
+y_hist_height = panelHeight
 
 # Make sure panels do not overlap: Left, bottom, width, height
 panel1 = plt.axes([0.14, 0.15, panelWidth, panelHeight]) 
@@ -113,54 +113,54 @@ y_panel2.tick_params(bottom=True, labelbottom=True,
 
 # Panel 1 scatter plot:
 panel1.plot(x_vals,y_vals,
-    marker='o',
-    markerfacecolor=(0,0,0),
-    markeredgecolor=(0,0,0),
-    markersize=1.5,
-    markeredgewidth=0,
-    linewidth=0,
-    alpha=0.1)    
+    marker = 'o',
+    markerfacecolor = (0, 0, 0),
+    markeredgecolor = (0, 0, 0),
+    markersize = 1.5,
+    markeredgewidth = 0,
+    linewidth = 0,
+    alpha = 0.1)
 # panel1.text(0,0,'r='+str(round(stats.spearmanr(xList,yList)[0],2)))
 # print(round(stats.spearmanr(xList,yList)[0],2))
-panel1.set_xlim(0,max(x_vals))
-panel1.set_ylim(0,max(y_vals))
+panel1.set_xlim(0, max(x_vals))
+panel1.set_ylim(0, max(y_vals))
 
 
 # Add histograms to panel group 1:
-x_hist_vals, x_hist_bins = np.histogram(x_vals, np.arange(0,15,0.5))
-y_hist_vals, y_hist_bins = np.histogram(y_vals, np.arange(0,15,0.5))
+x_hist_vals, x_hist_bins = np.histogram(x_vals, np.arange(0, 15, 0.5))
+y_hist_vals, y_hist_bins = np.histogram(y_vals, np.arange(0, 15, 0.5))
 
 # Plot histograms to Panel 1
-for i in np.arange(0,len(x_hist_vals),1):
-    x_left=i/2 # len(x_hist_bins)
-    x_bottom=0
-    x_width=1/2 # len(x_hist_bins)
-    x_height=np.log2(x_hist_vals[i]+1)
-    y_left=0
-    y_bottom=i/2
-    y_width=np.log2(y_hist_vals[i]+1)
-    y_height=0.5
-    rect1 = mplpatches.Rectangle((x_left,x_bottom),x_width,x_height,
-                                  facecolor="grey", 
-                                  edgecolor=(0,0,0),
-                                  linewidth=0.1)
-    rect2 = mplpatches.Rectangle((y_left,y_bottom),y_width,y_height,
-                                  facecolor="grey", 
-                                  edgecolor=(0,0,0),
-                                  linewidth=0.1)
+for i in np.arange(0, len(x_hist_vals), 1):
+    x_left = i/2 # len(x_hist_bins)
+    x_bottom = 0
+    x_width = 1/2 # len(x_hist_bins)
+    x_height = np.log2(x_hist_vals[i] + 1)
+    y_left = 0
+    y_bottom = i/2
+    y_width = np.log2(y_hist_vals[i] + 1)
+    y_height = 0.5
+    rect1 = mplpatches.Rectangle((x_left, x_bottom), x_width, x_height,
+                                  facecolor = "grey", 
+                                  edgecolor = (0, 0, 0),
+                                  linewidth = 0.1)
+    rect2 = mplpatches.Rectangle((y_left, y_bottom), y_width, y_height,
+                                  facecolor = "grey", 
+                                  edgecolor = (0, 0, 0),
+                                  linewidth = 0.1)
     x_panel1.add_patch(rect1)
     y_panel1.add_patch(rect2)
 
 # Panel 1 group labels:
-panel1.set_xlim(0,15)
-panel1.set_ylim(0,15)
-panel1.set_xticks(np.arange(0,16,5))
-x_panel1.set_ylim(0,20) 
-x_panel1.set_xlim(0,15)
+panel1.set_xlim(0, 15)
+panel1.set_ylim(0, 15)
+panel1.set_xticks(np.arange(0, 16, 5))
+x_panel1.set_ylim(0, 20) 
+x_panel1.set_xlim(0, 15)
 # x_panel1.set_yticks(np.arange(20,-1,20))
-y_panel1.set_ylim(0,15)
-y_panel1.set_xlim(20,0)
-y_panel1.set_yticks(np.arange(0,16,5))
+y_panel1.set_ylim(0, 15)
+y_panel1.set_xlim(20, 0)
+y_panel1.set_yticks(np.arange(0, 16, 5))
 
 # Panel 2 scatter-heatmap plot:
 #for zeta in rect_coords:
@@ -171,46 +171,46 @@ y_panel1.set_yticks(np.arange(0,16,5))
 #                                        linewidth = 1)
 #        panel2.add_patch(rectangle)
 
-panel2.plot(x_vals,y_vals,
-    marker='o',
-    markerfacecolor=(0,0,0),
-    markeredgecolor=(0,0,0),
-    markersize=1.5,
-    markeredgewidth=0,
-    linewidth=0,
-    alpha=0.1)    
-panel2.set_xlim(0,max(x_vals))
-panel2.set_ylim(0,max(y_vals))
+panel2.plot(x_vals, y_vals,
+    marker = 'o',
+    markerfacecolor = (0, 0, 0),
+    markeredgecolor = (0, 0, 0),
+    markersize = 1.5,
+    markeredgewidth = 0,
+    linewidth = 0,
+    alpha = 0.1)    
+panel2.set_xlim(0, max(x_vals))
+panel2.set_ylim(0, max(y_vals))
 
 # Plot histograms to Panel 2
-for i in np.arange(0,len(x_hist_vals),1):
-    x_left=i/2 # len(x_hist_bins)
-    x_bottom=0
-    x_width=1/2 # len(x_hist_bins)
-    x_height=np.log2(x_hist_vals[i]+1)
-    y_left=0
-    y_bottom=i/2
-    y_width=np.log2(y_hist_vals[i]+1)
-    y_height=0.5
-    rect1 = mplpatches.Rectangle((x_left,x_bottom),x_width,x_height,
-                                  facecolor="grey", 
-                                  edgecolor=(0,0,0),
-                                  linewidth=0.1)
-    rect2 = mplpatches.Rectangle((y_left,y_bottom),y_width,y_height,
-                                  facecolor="grey", 
-                                  edgecolor=(0,0,0),
-                                  linewidth=0.1)
+for i in np.arange(0, len(x_hist_vals), 1):
+    x_left = i/2 # len(x_hist_bins)
+    x_bottom = 0
+    x_width = 1/2 # len(x_hist_bins)
+    x_height = np.log2(x_hist_vals[i] + 1)
+    y_left = 0
+    y_bottom = i/2
+    y_width = np.log2(y_hist_vals[i] + 1)
+    y_height = 0.5
+    rect1 = mplpatches.Rectangle((x_left, x_bottom), x_width, x_height,
+                                  facecolor = "grey", 
+                                  edgecolor = (0, 0, 0),
+                                  linewidth = 0.1)
+    rect2 = mplpatches.Rectangle((y_left, y_bottom), y_width, y_height,
+                                  facecolor = "grey", 
+                                  edgecolor = (0, 0, 0),
+                                  linewidth = 0.1)
     x_panel2.add_patch(rect1)
     y_panel2.add_patch(rect2)
 
 # Panel 2 group labels:
-panel2.set_xlim(0,15)
-panel2.set_ylim(0,15)
-x_panel2.set_ylim(0,20)
-x_panel2.set_xlim(0,15)
-y_panel2.set_ylim(0,15)
-y_panel2.set_xlim(20,0)
-panel2.set_xticks(np.arange(0,16,5))
+panel2.set_xlim(0, 15)
+panel2.set_ylim(0, 15)
+x_panel2.set_ylim(0, 20)
+x_panel2.set_xlim(0, 15)
+y_panel2.set_ylim(0, 15)
+y_panel2.set_xlim(20, 0)
+panel2.set_xticks(np.arange(0, 16, 5))
 
 # Save figure
 plt.savefig('scatter_test.png', dpi=600)
