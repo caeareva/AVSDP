@@ -130,7 +130,7 @@ panel1.set_ylim(0,max(y_vals))
 x_hist_vals, x_hist_bins = np.histogram(x_vals, np.arange(0,15,0.5))
 y_hist_vals, y_hist_bins = np.histogram(y_vals, np.arange(0,15,0.5))
 
-# Plot histograms
+# Plot histograms to Panel 1
 for i in np.arange(0,len(x_hist_vals),1):
     x_left=i/2 # len(x_hist_bins)
     x_bottom=0
@@ -182,6 +182,7 @@ panel2.plot(x_vals,y_vals,
 panel2.set_xlim(0,max(x_vals))
 panel2.set_ylim(0,max(y_vals))
 
+# Plot histograms to Panel 2
 for i in np.arange(0,len(x_hist_vals),1):
     x_left=i/2 # len(x_hist_bins)
     x_bottom=0
@@ -213,4 +214,3 @@ panel2.set_xticks(np.arange(0,16,5))
 
 # Save figure
 plt.savefig('scatter_test.png', dpi=600)
-
