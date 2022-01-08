@@ -5,8 +5,8 @@
 #   Email: carevalo0170@gmail.com
 #
 #   Program description:
-#   Program takes an input text file. The program was written to be run in the 
-#   command line, but could be slightly modified to be run in Jupyter notebook. 
+#   Program takes an input text file. The program was written to be executed in
+#   the command line, but could be slightly modified to be run in Jupyter notebook. 
 #
 #   Program execution:
 #	python3 /Users/carevalo/Desktop/histogram_circos/histogram_program.py \
