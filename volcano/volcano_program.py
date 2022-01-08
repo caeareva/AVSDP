@@ -7,8 +7,8 @@
 #   Program description:
 #   Program takes an input text file in which the first column are genes, second
 #   column are the LFC values, and third column, p-values.
-#   The program was written to be run in the command line, but could be slightly 
-#   modified to be run in Jupyter notebook. 
+#   The program was written to be executed in the command line, but could be 
+#   slightly modified to Jupyter Notebook. 
 #
 #   Program execution:
 #   python3 /Users/carlosarevalo/Desktop/volcano_program.py \
@@ -17,7 +17,6 @@
 #       -s /Users/carlosarevalo/Downloads/stylesheet.mplstyle 
 #
 ################################################################################
-
 
 import matplotlib.pyplot as plt 
 import matplotlib.patches as mplpatches
