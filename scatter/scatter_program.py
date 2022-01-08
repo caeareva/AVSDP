@@ -41,6 +41,7 @@ inFile = args.input_file
 x_values=[]
 y_values=[]
 
+# Read input data
 with open(inFile, "r") as inFile:
     for line in inFile.readlines():
         splitline=line.strip().split("\t")
@@ -51,13 +52,12 @@ with open(inFile, "r") as inFile:
 
 x_vals=np.log2([x+1 for x in np.array(x_values)])
 y_vals=np.log2([y+1 for y in np.array(y_values)])
-# print(x_vals)
 
 # Define figure dimensions:
 figureHeight=2
 figureWidth=5
 
-# Generates a wide canvas of arbitrary size:
+# Generate a wide canvas of arbitrary size:
 plt.figure(figsize=(figureWidth, figureHeight)) 
 
 # Normalized panel size parameters:
@@ -68,7 +68,7 @@ x_hist_height=(1/4)/figureHeight
 y_hist_width=(1/4)/figureWidth
 y_hist_height=panelHeight
 
-# Makes sure panels do not overlap: Left, bottom, width, height
+# Make sure panels do not overlap: Left, bottom, width, height
 panel1 = plt.axes([0.14, 0.15, panelWidth, panelHeight]) 
 panel2 = plt.axes([0.54, 0.15, panelWidth, panelHeight])
 
@@ -129,8 +129,8 @@ panel1.set_ylim(0,max(y_vals))
 # Add histograms to panel group 1:
 x_hist_vals, x_hist_bins = np.histogram(x_vals, np.arange(0,15,0.5))
 y_hist_vals, y_hist_bins = np.histogram(y_vals, np.arange(0,15,0.5))
-# print(len(x_hist_bins))
 
+# Plot histograms
 for i in np.arange(0,len(x_hist_vals),1):
     x_left=i/2 # len(x_hist_bins)
     x_bottom=0
@@ -211,5 +211,6 @@ y_panel2.set_ylim(0,15)
 y_panel2.set_xlim(20,0)
 panel2.set_xticks(np.arange(0,16,5))
 
+# Save figure
 plt.savefig('scatter_test.png', dpi=600)
 
