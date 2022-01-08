@@ -5,8 +5,8 @@
 #   Email: carevalo0170@gmail.com
 #
 #   Program description:
-#   Program takes a fasta file. The program was written to be run in the 
-#   command line, but could be slightly modified to be run in Jupyter notebook. 
+#   Program takes as input fasta file. The program was written to be executed 
+#   in the command line and could be slightly modified to Jupyter Notebook. 
 #
 #   Program execution:
 #   python3 /Users/carlosarevalo/Desktop/seq_logos_program.py \
@@ -63,7 +63,7 @@ panel2 = plt.axes([(2.4+1)/6, 0.3, relativePanelWidth, relativePanelHeight])
 panel1.plot([10 for i in range(10)], list(range(0,10)), color="black", linewidth=0.5)
 panel2.plot([10 for i in range(10)], list(range(0,10)), color="black", linewidth=0.5)
 
-# class FastAreader was reused and implemented from a BME160 assignment
+# Class FastAreader was reused and implemented from a BME160 assignment from UCSC
 class FastAreader:
     def __init__ (self, fname=''):
         '''contructor: saves attribute fname'''
@@ -118,7 +118,7 @@ for path, dirs, img, in os.walk(inLogos):
         else:
             continue
 
-# reads fasta sequences
+# Read fasta sequences
 read_obj = FastAreader(inFile)
 read_obj.doOpen()
 sequenceDict = {}
@@ -126,7 +126,7 @@ sequenceDict = {}
 spliceSite5 = []
 spliceSite3 = []
 
-# Separates sequences by splice site
+# Separate sequences by splice site
 for header, sequence in read_obj.readFasta():
     headerSplit = header.strip().split('_') 
     spliceDirection = headerSplit[0]
@@ -137,11 +137,11 @@ for header, sequence in read_obj.readFasta():
         spliceSite3.append(sequence) 
     pass
 
-# Sequences range distionaries
+# Sequence range distionaries
 ss5_Dict = {i:[] for i in range(20)}  
 ss3_Dict = {i:[] for i in range(20)}
 
-# Assigns sequence range
+# Assign sequence range
 for sequence in spliceSite5:
     for pos in range(20):
         ss5_Dict[pos].append(sequence[pos])
@@ -150,7 +150,7 @@ for sequence in spliceSite3:
     for pos in range(20):
         ss3_Dict[pos].append(sequence[pos])
 
-# Calculates 5' splice site frequency, ratios, and plots SS5
+# Calculate 5' splice site frequency, ratios, and plots SS5
 for base in list(ss5_Dict.keys()):
     height_ss5 = 0
     freq = Counter(ss5_Dict[base])
@@ -168,7 +168,7 @@ for base in list(ss5_Dict.keys()):
         height = height + (freq[key]*ratio5)
     pass
 
-# Calculates 3' splice site frequency, ratios, and plots SS3
+# Calculate 3' splice site frequency, ratios, and plots SS3
 for base in list(ss3_Dict.keys()):
     height_ss3 = 0
     freq = Counter(ss3_Dict[base])
@@ -186,19 +186,19 @@ for base in list(ss3_Dict.keys()):
         height = height + (freq[key]*ratio3)
     pass
 
-# Figure limits
+# Axis limits
 panel1.set_xlim([0, 20])
 panel2.set_xlim([0, 20])
 panel1.set_ylim([0, 2])
 panel2.set_ylim([0, 2])
 
-# Figure tick labels
+# Axis tick labels
 warnings.filterwarnings("ignore")
 panel1.set_xticklabels(np.arange(-10, 11, 5))
 panel2.set_xticklabels(np.arange(-10, 11, 5))
 panel2.set_yticks([])
 
-# Figure axis titles
+# Plot and axis titles
 panel1.set_title("5'SS")
 panel2.set_title("3'SS")
 panel1.set_xlabel("Distance to\nSplice Site")
