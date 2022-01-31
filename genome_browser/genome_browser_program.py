@@ -10,11 +10,21 @@
 #   run in Jupyter notebook. Since only one test PLS file is provided, program 
 #   can be executed with the same file for both input parameters.
 #
+#   Program uses the mouse reference genome (vM12) and could be replaced by any 
+#   of the human (HG19 or HG38) genome references.These references can be 
+#   downloaded from the following sites.
+#
+#   HG19 reference:
+#   wget ftp://ftp.ensembl.org/pub/grch37/release-84/gtf/homo_sapiens/Homo_sapiens.GRCh37.82.gtf.gz
+# 
+#   HG39 reference:
+#   wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_39/gencode.v39.annotation.gtf.gz
+#
 #   Program execution:
 #   python3 /Users/carevalo/Desktop/genome_browser/genome_browser_program.py \
 #      -i1 /Users/carevalo/Desktop/genome_browser/test_input_data_6.psl \
 #      -i2 /Users/carevalo/Desktop/genome_browser/test_input_data_6.psl \
-#      -g /Users/carevalo/Desktop/genome_browser/refdata-gex-mm10-2020-A-genes_wtMUC1_fsMUC1.gtf \
+#      -g /Users/carevalo/Desktop/genome_browser/gencode.vM12.annotation.gtf \
 #      -o /Users/carevalo/Desktop/genome_browser/genome_browser_figure.png \
 #      -s /Users/carevalo/Desktop/genome_browser/stylesheet.mplstyle
 #
