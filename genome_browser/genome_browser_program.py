@@ -21,12 +21,12 @@
 #   wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_39/gencode.v39.annotation.gtf.gz
 #
 #   Program execution:
-#   python3 /Users/carevalo/Desktop/genome_browser/genome_browser_program.py \
-#      -i1 /Users/carevalo/Desktop/genome_browser/test_input_data_6.psl \
-#      -i2 /Users/carevalo/Desktop/genome_browser/test_input_data_6.psl \
-#      -g /Users/carevalo/Desktop/genome_browser/gencode.vM12.annotation.gtf \
-#      -o /Users/carevalo/Desktop/genome_browser/genome_browser_figure.png \
-#      -s /Users/carevalo/Desktop/genome_browser/stylesheet.mplstyle
+#   python3 /Users/carevalo/Desktop/lollipop/genome_browser_program.py \
+#      -i1 /Users/carevalo/Desktop/lollipop/test_input_data_6.pls \
+#      -i2 /Users/carevalo/Desktop/lollipop/test_input_data_6.pls \
+#      -g /Users/carevalo/Desktop/lollipop/gencode.v39.annotation.gtf \
+#      -o /Users/carevalo/Desktop/lollipop/genome_browser_figure.png \
+#      -s /Users/carevalo/Desktop/lollipop/stylesheet.mplstyle
 #
 ################################################################################
 
@@ -127,7 +127,7 @@ def readGtf(inFile):
     return transcriptList
 
 # Plot transcripts
-def plotTranscripts(panel, readList, genomicCoord, line_thin, line_thick, width):
+def plotTranscripts(panel, readList, genomicCoord, line_thin, line_thick, width, color):
     genome_chromosome, genome_start, genome_end = genomicCoord[0], genomicCoord[1], genomicCoord[2]
     plottedReads = [] # Keep list of plotted reads
     for read in readList:
@@ -151,8 +151,8 @@ def plotTranscripts(panel, readList, genomicCoord, line_thin, line_thick, width)
     				rect = mplpatches.Rectangle((start, y_pos+width),
     											end-start,
     											line_thin,
-    											facecolor='black',
-    											edgecolor='black',
+    											facecolor=color, 
+    											edgecolor=color, 
     											linewidth=0)
     				panel.add_patch(rect)
     				for index in np.arange(0, len(blockstarts), 1):
@@ -163,8 +163,8 @@ def plotTranscripts(panel, readList, genomicCoord, line_thin, line_thick, width)
     						rect1 = mplpatches.Rectangle((blockstart, y_pos+0.12),
     												blockwidth,
     												line_thick,
-    												facecolor='black',
-    												edgecolor='black',
+    												facecolor=color, 
+    												edgecolor=color,
     												linewidth=0)
     						panel.add_patch(rect1)
     					if element == "CDS":
@@ -172,17 +172,18 @@ def plotTranscripts(panel, readList, genomicCoord, line_thin, line_thick, width)
     						rect2 = mplpatches.Rectangle((blockstart, y_pos-0.01),
     												blockwidth,
     												line_thickness,
-    												facecolor='black',
-    												edgecolor='black',
+    												facecolor=color, 
+    												edgecolor=color,
     												linewidth=0)
     						panel.add_patch(rect2)
+
     				read[5] = True
     				lastPlottedEnd = end
 
     return y_pos
 
 # Plot reads
-def plotReads(panel, readList, genomicCoord, line_thin, line_thick, width):
+def plotReads(panel, readList, genomicCoord, line_thin, line_thick, width, color):
 	genome_chromosome, genome_start, genome_end = genomicCoord[0], genomicCoord[1], genomicCoord[2]
 	plottedReads = [] # Keep list of plotted reads
 	for read in readList: 
@@ -206,18 +207,19 @@ def plotReads(panel, readList, genomicCoord, line_thin, line_thick, width):
 					rect = mplpatches.Rectangle((start, y_pos+width), 
 												end-start, 
 												line_thin, 
-												facecolor='black', 
-												edgecolor='black',
+												facecolor=color, 
+												edgecolor=color,
 												linewidth=0)
 					panel.add_patch(rect)
+					# color by exons: helpful if decide a different color
 					for index in np.arange(0, len(blockstarts), 1):
 						blockstart = blockstarts[index]
 						blockwidth = blockwidths[index]
 						rect = mplpatches.Rectangle((blockstart, y_pos),
 						 							blockwidth,
 						 							line_thick, 
-													facecolor='black', 
-													edgecolor='black', 
+													facecolor=color, 
+													edgecolor=color, 
 													linewidth=0)
 						panel.add_patch(rect)
 					read[5] = True
@@ -237,6 +239,7 @@ panel3 = panel_params(0, 0.05, figureWidth, figureHeight)
 
 # Define genomic region of interest
 #genomicCoord = ['chr1', 155184054, 155194688] # MUC1
+#genomicCoord = ['chr3', 89229057, 8923338] # MUC1 mouse
 #genomicCoord = ['chr12', 25205246, 25250929] # KRAS
 genomicCoord = ['chr7', 45232945, 45240000]
 
@@ -245,7 +248,8 @@ transcriptList = readGtf(genomeFile)
 panel1_thin = 0.1
 panel1_thick = 0.24
 panel1_width = 0.19
-bottom = plotTranscripts(panel1, transcriptList, genomicCoord, panel1_thin, panel1_thick, panel1_width)
+panel1_color="#2166AC"
+bottom = plotTranscripts(panel1, transcriptList, genomicCoord, panel1_thin, panel1_thick, panel1_width, panel1_color)
 panel1.set_xlim(genomicCoord[1], genomicCoord[2])
 panel1.set_ylim(0.24, 10.05)
 
@@ -254,7 +258,8 @@ readList2 = readData(readsFile1)
 panel3_thin = 0.1
 panel3_thick = 0.5
 panel3_width = 0.2
-bottom2 = plotReads(panel3, readList2, genomicCoord, panel3_thin, panel3_thick, panel3_width)
+panel3_color="#228B3B" # "#40AD5A"
+bottom2 = plotReads(panel3, readList2, genomicCoord, panel3_thin, panel3_thick, panel3_width, panel3_color)
 panel3.set_xlim(genomicCoord[1], genomicCoord[2])
 panel3.set_ylim(0, 436)
 
@@ -263,10 +268,10 @@ readList1 = readData(readsFile2)
 panel2_thin = 0.08
 panel2_thick = 0.5
 panel2_width = 0.21
-bottom1 = plotReads(panel2, readList1, genomicCoord, panel2_thin, panel2_thick, panel2_width)
+panel2_color="#D6604D"
+bottom1 = plotReads(panel2, readList1, genomicCoord, panel2_thin, panel2_thick, panel2_width, panel2_color)
 panel2.set_xlim(genomicCoord[1], genomicCoord[2])
 panel2.set_ylim(0.2, 69.5)
 
 # Save figure
 plt.savefig(outFile, dpi=1200)
-
