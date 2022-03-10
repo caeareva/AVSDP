@@ -13,3 +13,5 @@ More programs will be added overtime, enjoy!
 <br>
 <img src="https://github.com/caeareva/AVSDP/blob/37213c6635a417a92c75d76fed55b7436af6f8f2/summary_figure_2.png"
 <br>
+<img src="https://github.com/caeareva/AVSDP/blob/b71cf37d847aad950bffacb9dea12f3a4aef1cc7/summary_figure_3.png"
+<br>
