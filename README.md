@@ -11,7 +11,7 @@ More programs will be added overtime, enjoy!
 <br>
 <img src="https://github.com/caeareva/AVSDP/blob/98d03dd6b07dc7fda3eea6641f1007225dc53259/summary_figure_1.png"
 <br>
-<img src="https://github.com/caeareva/AVSDP/blob/3f1dcf35e171c54e0d73d1ee58abb4ae775f06d4/summary_figure_2.png"
+<img src="https://github.com/caeareva/AVSDP/blob/984a26dd6a7fba150eb141539d8ea6a193428a88/summary_figure_2.png"
 <br>
 <img src="https://github.com/caeareva/AVSDP/blob/ff168211905ba15af3ad68076a36c2f3bfe19a5f/summary_figure_3.png"
 <br>
