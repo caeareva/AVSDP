@@ -75,12 +75,18 @@ with open(inFile, "r") as inFile:
 data_count = sorted(data_count, key=lambda x:x[-1], reverse=True)
 
 # Build RGB and color palette
-yellow = (255,220,0)
-white = (255,255,255)
-blue = (56,66,156)
+yellow = (255, 220, 0)
+white = (255, 255, 255)
+blue = (56, 66, 156)
 R = np.linspace(yellow[0]/255, blue[0]/255, 101)
 G = np.linspace(yellow[1]/255, blue[1]/255, 101)
 B = np.linspace(yellow[2]/255, blue[2]/255, 101)
+
+# Color vector
+colors = ["#E32977", "#3C93C2", "#E9E29C", "#5BBCD6", \
+		  "#FF0000", "#9CCB86", "#F2AD00", "#000000", \
+		  "#D69C4E", "#7C1D6F", "#46AEA0", "#FC4E2A", \
+		  "#CCCCCC", "#053061"]
 
 # Heatmap panel
 y = 0
@@ -88,7 +94,8 @@ for value in data_count:
 	x = 0
 	for position in value[:-1]:
 		color = (R[int(position)], G[int(position)], B[int(position)])
-		rectangle = mplpatches.Rectangle([x,y],1,1, facecolor=color, linewidth=0)
+		rectangle = mplpatches.Rectangle([x,y], 1, 1, 
+					facecolor=color, linewidth=0)
 		panel1.add_patch(rectangle)
 		x += 1
 	y += 1
@@ -96,7 +103,7 @@ for value in data_count:
 
 
 # Circular histogram
-for r in np.arange(0.82, 0.98, 0.01):
+for r in np.arange(0.82, 0.98, 0.01): # 0.82, 0.98, 0.01
 	xList = []
 	yList = []
 	for radian in np.linspace(-np.pi/2, np.pi/2, 1000):
@@ -108,7 +115,7 @@ for r in np.arange(0.82, 0.98, 0.01):
 
 	panel2.plot(xList, yList, 
 				marker = "o",
-				markersize = 0.05,
+				markersize = 0.05, #0.05
 				markeredgewidth = 0, 
 				color = "black")
 
@@ -122,8 +129,11 @@ tempArray = list(reversed(arrayCounts))
 for i in range(len(phaseHist[0])):
 	xList = []
 	yList = []
-	limit = np.arange(phaseHist[1][i], (phaseHist[1][i] + 2), 0.01)
-	lineLimit = np.arange(phaseHist[1][i], phaseHist[1][i] + 2.1, 2) 
+	#print(phaseHist[1][i])
+	limit = np.arange(phaseHist[1][i] + 0.033, (phaseHist[1][i] + 2), 0.016) # 2.0, 0.01
+	#print(limit)
+	lineLimit = np.arange(phaseHist[1][i] - 0.001, phaseHist[1][i] + 2.05, 2 + 0.01) # 2.1, 2
+	#print(lineLimit)
 	r = (tempArray[i])/100 + 1
 	for j in lineLimit:
 		scaledVal = (j/24)*(np.pi*2)
@@ -132,25 +142,26 @@ for i in range(len(phaseHist[0])):
 		xIn = [xVal/r, xVal]
 		yIn = [yVal/r, yVal]
 		panel2.plot(xIn, yIn, 
-					markersize = 0,
-					markeredgewidth = 0.5,
+					markersize = 0, # 0
+					markeredgewidth = 0.5, # 0.5
 					color = "black", 
 					linewidth = 0.5) 
 		pass
 
 	# Fills bins	
 	for point in limit:
-		scaledVal = (point/24)*(np.pi*2)
-		xVal = np.cos(scaledVal+(np.pi/2))*r 
-		yVal = np.sin(scaledVal+(np.pi/2))*r
+		scaledVal = (point/24)*(np.pi*2) #- 0.01 shift color
+		xVal = np.cos(scaledVal + (np.pi/2))*r 
+		yVal = np.sin(scaledVal + (np.pi/2))*r
 		xList.append(xVal)
 		yList.append(yVal)
 		xIn = [xVal/r, xVal]
 		yIn = [yVal/r, yVal]
 		panel2.plot(xIn, yIn, 
-					markersize = 0,
+					markersize = 0, 
 					markeredgewidth = 0,
-					color = "grey", 
+					color = colors[i], # "grey", 
+					alpha = 0.7,
 					linewidth = 0.3) 
 		pass
 	
@@ -202,6 +213,7 @@ for r in [0.8, 1]:
 panel2.text(-2.219, 0, "100", verticalalignment="center", horizontalalignment="center", fontsize=6)
 panel2.text(-3.219, 0, "200", verticalalignment="center", horizontalalignment="center", fontsize=6)
 panel2.text(-4.219, 0, "300", verticalalignment="center", horizontalalignment="center", fontsize=6)
+
 # Add centered labels
 panel2.text(0, 0, "CT", verticalalignment="center", horizontalalignment="center", fontsize=6)
 panel2.text(0, 0.5, "0", verticalalignment="center", horizontalalignment="center", fontsize=6)
