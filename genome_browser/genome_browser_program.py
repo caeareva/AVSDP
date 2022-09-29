@@ -60,14 +60,17 @@ outFile = args.output_file
 
 # Set panels parameters
 def panel_params(x_pos, y_pos, figureWidth, figureHeight):
-	# Sefine panel dimensions
+	
+	# Define panel dimensions
 	panelHeight = 1.25
 	panelWidth = 10
 	relativePanelWidth = panelWidth/figureWidth
 	relativePanelHeight = panelHeight/figureHeight
+	
 	# Set panel
 	panel = plt.axes([x_pos, y_pos, relativePanelWidth, relativePanelHeight], frameon=True)
 	panel.set_xticks([])
+	
 	# Turn all labels and thicks off
 	panel.tick_params(bottom=False, labelbottom=False,
                         left=False, labelleft=False,
