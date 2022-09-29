@@ -5,13 +5,13 @@
 #   Email: carevalo0170@gmail.com
 #
 #   Program description:
-#   Program takes as input a GTF file, two PLS files text files. The program was 
-#   written to be run in the command line, but could be slightly modified to be 
-#   run in Jupyter notebook. Since only one test PLS file is provided, program 
-#   can be executed with the same file for both input parameters.
+#   Program takes as input a GTF file, two PLS text files. The program was 
+#   written to be executed in stdin through the command line, but could be slightly 
+#   modified to be run in Jupyter notebook. Since only one test PLS file is provided,
+#   program can be executed with the same file for both input parameters.
 #
 #   Program uses the mouse reference genome (vM12) and could be replaced by any 
-#   of the human (HG19 or HG38) genome references.These references can be 
+#   of the human (HG19 or HG38) genome references. These references can be 
 #   downloaded from the following sites.
 #
 #   HG19 reference:
@@ -21,12 +21,12 @@
 #   wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_39/gencode.v39.annotation.gtf.gz
 #
 #   Program execution:
-#   python3 /Users/carevalo/Desktop/lollipop/genome_browser_program.py \
-#      -i1 /Users/carevalo/Desktop/lollipop/test_input_data_6.pls \
-#      -i2 /Users/carevalo/Desktop/lollipop/test_input_data_6.pls \
-#      -g /Users/carevalo/Desktop/lollipop/gencode.v39.annotation.gtf \
-#      -o /Users/carevalo/Desktop/lollipop/genome_browser_figure.png \
-#      -s /Users/carevalo/Desktop/lollipop/stylesheet.mplstyle
+#   python3 /Users/carevalo/Desktop/genome_browser/genome_browser_program.py \
+#      -i1 /Users/carevalo/Desktop/genome_browser/test_input_data_6.pls \
+#      -i2 /Users/carevalo/Desktop/genome_browser/test_input_data_6.pls \
+#      -g /Users/carevalo/Desktop/genome_browser/gencode.v39.annotation.gtf \
+#      -o /Users/carevalo/Desktop/genome_browser/genome_browser_figure.png \
+#      -s /Users/carevalo/Desktop/genome_browser/stylesheet.mplstyle
 #
 ################################################################################
 
