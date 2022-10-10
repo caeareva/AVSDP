@@ -1,10 +1,9 @@
 ## Analysis and Visualization of Scientific Data in Python
 
-A collection of programs written in raw Python (https://www.python.org/)
+A collection of programs written in raw <a href="https://www.python.org/">Python</a>
 to analyse scientific data from biological experiments. Each program could be optimized and 
-implemented based on data. All programs were written to be executed in the command-line interface
-(https://launchschool.com/books/command_line/read/introduction) and could be slightly modified to
-Jupyter Notebook (https://jupyter.org/).
+implemented based on data. All programs were written to be executed in the <a href="https://launchschool.com/books/command_line/read/introduction">command-line</a> interface and could be slightly modified to 
+<a href="https://jupyter.org/">Jupyter</a> notebook.
 
 More programs will be added overtime, enjoy!
 
