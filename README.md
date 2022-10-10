@@ -2,7 +2,7 @@
 
 A collection of programs written in raw <a href="https://www.python.org/">Python</a>
 to analyse scientific data from biological experiments. Each program could be optimized and 
-implemented based on data. All programs were written to be executed in the <a href="https://launchschool.com/books/command_line/read/introduction">command-line</a> interface and could be slightly modified to 
+implemented based on data. All programs were written to be executed in the <a href="https://launchschool.com/books/command_line/read/introduction">command-line</a> interface and could be modified to 
 <a href="https://jupyter.org/">Jupyter</a> notebook.
 
 More programs will be added overtime, enjoy!
